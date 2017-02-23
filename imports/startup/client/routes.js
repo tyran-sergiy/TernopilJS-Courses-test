@@ -4,12 +4,11 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import '../../ui/partials/sideNav.html';
 import '../../ui/partials/Nav.html';
 
-
 import '../../ui/layouts/HomeLayout.html';
 import '../../ui/layouts/MainLayout.html';
 
 import '../../ui/pages/trips/TripsList.js';
-import '../../ui/pages/AboutMe.html';
+import '../../ui/pages/about_me/AboutMe.html';
 
 FlowRouter.route('/', {
   name: 'Home',
