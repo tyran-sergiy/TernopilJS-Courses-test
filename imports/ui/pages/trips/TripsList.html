@@ -1,0 +1,29 @@
+<template name="TripsList">
+<style media="screen">
+  .content-title{
+    font-family: 'Montserrat', sans-serif;
+border-bottom: 2px solid #7b4510;
+padding-bottom: 10px;
+margin-bottom: 50px;
+  }
+</style>
+
+<div class="mdl-grid">
+  <div class="mdl-layout-spacer"></div>
+  <div class="mdl-cell mdl-cell--5-col  mdl-typography--text-center">
+
+    <h3 class="content-title">My trips</h3>
+    {{#each Trips}}
+
+    {{/each}}
+    {{>Trip}}
+    {{>Trip}}
+    {{>Trip}}
+    {{>Trip}}
+    {{>Trip}}
+  </div>
+    <div class="mdl-layout-spacer"></div>
+      </div>
+
+
+</template>
