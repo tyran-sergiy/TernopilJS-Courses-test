@@ -8,8 +8,8 @@ margin-bottom: 20px;
 }
 .demo-card-wide > .mdl-card__title {
 color: #fff;
-height: 176px;
-background: url('1.jpg') center / cover;
+height: 250px;
+background: url('{{imgPath}}') center / cover;
 }
 .demo-card-wide > .mdl-card__menu {
 color: #fff;
@@ -18,14 +18,13 @@ color: #fff;
 
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
 <div class="mdl-card__title">
-  <h2 class="mdl-card__title-text">Welcome</h2>
+  <h2 class="mdl-card__title-text">{{title}}</h2>
 </div>
 <div class="mdl-card__supporting-text">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Mauris sagittis pellentesque lacus eleifend lacinia...
+{{desc}}
 </div>
 <div class="mdl-card__actions mdl-card--border">
-  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{photosLink}}">
     More photos
   </a>
 </div>
