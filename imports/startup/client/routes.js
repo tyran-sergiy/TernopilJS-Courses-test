@@ -6,6 +6,8 @@ import '../../ui/partials/sideNav.html';
 import '../../ui/layouts/HomeLayout.html';
 import '../../ui/layouts/MainLayout.html';
 
+import '../../ui/pages/trips/TripsList.js';
+
 FlowRouter.route('/', {
   name: 'Home',
   action() {
@@ -16,6 +18,8 @@ FlowRouter.route('/', {
 FlowRouter.route('/trips', {
   name: 'My trips',
   action() {
-    BlazeLayout.render('MainLayout');
+    BlazeLayout.render('MainLayout', {
+      main: 'TripsList',
+    });
   },
 });
