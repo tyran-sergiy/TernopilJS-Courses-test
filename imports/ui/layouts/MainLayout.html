@@ -1,0 +1,54 @@
+<!-- Uses a transparent header that draws on top of the layout's background -->
+
+<template name="MainLayout">
+  <body>
+    <div class="demo-layout-waterfall mdl-layout mdl-js-layout mdl-layout--no-desktop-drawer-button">
+      <header class="mdl-layout__header mdl-layout__header--waterfall">
+        <!-- Top row, always visible -->
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <div class="mdl-layout-spacer"></div>
+          <span class="mdl-layout-title">Without
+          <img src="logo.png" width="60" height="70"  alt="">
+          Destination</span>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+        <!-- Bottom row, not visible on scroll -->
+        <div class="mdl-layout__header-row">
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation -->
+
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link hvr-underline-reveal" href="">My trips</a>
+            <a class="mdl-navigation__link hvr-underline-reveal" href="">Awesome sorting</a>
+            <a class="mdl-navigation__link hvr-underline-reveal" href="">About me</a>
+          </nav>
+
+            <div class="mdl-layout-spacer"></div>
+
+
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Without
+        <img src="logo.png" width="60" height="60"  alt="">
+        Destination</span>
+
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link hvr-underline-reveal" href="">My trips</a>
+          <a class="mdl-navigation__link hvr-underline-reveal" href="">Awesome sorting</a>
+          <a class="mdl-navigation__link hvr-underline-reveal" href="">About me</a>
+        </nav>
+
+
+      </div>
+
+
+      <main class="mdl-layout__content row content bg">
+        <div class="page-content ">
+          {{Template.dynamic template=main}}
+        </div>
+      </main>
+    </div>
+  </body>
+</template>
