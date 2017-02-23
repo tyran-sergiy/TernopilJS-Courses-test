@@ -8,7 +8,7 @@ import '../../ui/layouts/HomeLayout.html';
 import '../../ui/layouts/MainLayout.html';
 
 import '../../ui/pages/trips/TripsList.js';
-import '../../ui/pages/about_me/AboutMe.html';
+import '../../ui/pages/about_me/AboutMe.js';
 
 FlowRouter.route('/', {
   name: 'Home',
