@@ -13,14 +13,17 @@ margin-bottom: 50px;
   <div class="mdl-cell mdl-cell--5-col  mdl-typography--text-center">
 
     <h3 class="content-title">My trips</h3>
-    {{#each Trips}}
 
+    {{#if Template.subscriptionsReady}}
+
+    {{#each trips}}
+    {{>Trip}}
     {{/each}}
-    {{>Trip}}
-    {{>Trip}}
-    {{>Trip}}
-    {{>Trip}}
-    {{>Trip}}
+
+    {{else}}
+    <p>Loading...</p>
+    {{/if}}
+
   </div>
     <div class="mdl-layout-spacer"></div>
       </div>
