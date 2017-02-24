@@ -1,4 +1,12 @@
 
+@media (max-width: 840px){
+  .center-sm{
+    margin: auto;
+    width: 70%;
+    height: auto;
+    padding: 5px;
+  }
+}
 body{
   font-family: 'Montserrat', sans-serif;
 }
