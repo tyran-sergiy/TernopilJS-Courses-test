@@ -1,4 +1,5 @@
 import { getRandArr } from './rand_int_arr_gen.js';
+import { getFewUniqueArr } from './few_unique_arr_gen';
 
 export const createArr = (arrSize, condition) => {
 
@@ -9,7 +10,7 @@ export const createArr = (arrSize, condition) => {
   break;
 
   case 'Few Unique':
-
+    return getFewUniqueArr(arrSize);
   break;
 
   case 'Reversed':
