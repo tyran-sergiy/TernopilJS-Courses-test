@@ -25,7 +25,21 @@ margin-bottom: 50px;
   font-size: 1.6em;
   float: left;
 }
-
+.sub-title{
+  margin-left: 35px;
+  font-family: inherit;
+}
+.about-me-card{
+width: auto;
+}
+.about-me-text{
+font-family: 'Roboto', sans-serif;
+line-height: 28px;
+font-weight: 300;
+font-size: 14px;
+color: #282828;
+  margin: 0 35px 35px 35px;
+}
 .billboard{
 background: #3d525d;
 color: #fff;
