@@ -1,5 +1,5 @@
 import './Sort.html';
-import { createArr } from '../../../modules/array_create.js';
+import { arrayGenerator } from '../../../modules/array_generators/ArrayGenerator.js';
 Template.Sort.events({
 
     'submit .sort'(event, instance) {
@@ -10,7 +10,7 @@ Template.Sort.events({
       const arrSize = target.size.value;
       const condition = target.condition.value;
 
-      console.log(createArr(arrSize, condition));
+      console.log(arrayGenerator(arrSize, condition));
 
     },
   });

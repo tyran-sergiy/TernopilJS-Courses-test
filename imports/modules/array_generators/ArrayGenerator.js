@@ -1,8 +1,8 @@
-import { getRandArr } from './rand_int_arr_gen.js';
-import { getFewUniqueArr } from './few_unique_arr_gen.js';
-import { getReversedArr } from './reversed_arr_gen.js';
+import { getRandArr } from './RandIntArrGen.js';
+import { getFewUniqueArr } from './FewUniqueArrGen.js';
+import { getReversedArr } from './ReversedArrGen.js';
 
-export const createArr = (arrSize, condition) => {
+export const arrayGenerator = (arrSize, condition) => {
 
   switch (condition) {
 
