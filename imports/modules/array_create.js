@@ -1,5 +1,6 @@
 import { getRandArr } from './rand_int_arr_gen.js';
-import { getFewUniqueArr } from './few_unique_arr_gen';
+import { getFewUniqueArr } from './few_unique_arr_gen.js';
+import { getReversedArr } from './reversed_arr_gen.js';
 
 export const createArr = (arrSize, condition) => {
 
@@ -14,7 +15,7 @@ export const createArr = (arrSize, condition) => {
   break;
 
   case 'Reversed':
-
+    return getReversedArr(arrSize);
   break;
 
   default:
