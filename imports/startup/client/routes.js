@@ -9,6 +9,7 @@ import '../../ui/layouts/MainLayout.html';
 
 import '../../ui/pages/trips/TripsList.js';
 import '../../ui/pages/about_me/AboutMe.js';
+import '../../ui/pages/sort/Sort.js';
 
 FlowRouter.route('/', {
   name: 'Home',
@@ -31,6 +32,15 @@ FlowRouter.route('/about', {
   action() {
     BlazeLayout.render('MainLayout', {
       main: 'AboutMe',
+    });
+  },
+});
+
+FlowRouter.route('/sort', {
+  name: 'Sorting page',
+  action() {
+    BlazeLayout.render('MainLayout', {
+      main: 'Sort',
     });
   },
 });
