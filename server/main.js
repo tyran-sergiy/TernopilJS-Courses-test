@@ -1,2 +1,2 @@
-import { Meteor } from 'meteor/meteor';
 import '../imports/api/trips';
+import '../imports/api/sorts';
