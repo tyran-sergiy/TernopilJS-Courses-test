@@ -19,6 +19,8 @@ export const arrayGenerator = (arrSize, condition) => {
   break;
 
   default:
+    return getRandArr(arrSize, 0, 1000000);
+  break;
 
 }
 
