@@ -13,8 +13,13 @@ function sort(array, sortType, condition, logs, instance) {
             }else {
               logs.push('Finish ' + sortType + ' for ' + condition + ' array');
               instance.logs.set(logs);
-              resolve(sortType + res);
+              resolve({
+                sortType: sortType,
+                time: res,
+              });
             }
           });
+      }).catch((err) => {
+        console.log(err);
       });
 }

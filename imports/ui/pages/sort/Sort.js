@@ -6,7 +6,7 @@ import { sort } from '/imports/modules/sort/sort.js';
 import { dialog } from '/imports/modules/ModalDialog.js';
 
 Template.Sort.onCreated(function sortOnCreated() {
-    this.executionTime = new ReactiveVar({});
+    this.executionTime = new ReactiveVar([]);
     this.sorting = new ReactiveVar(false);
     this.logs = new ReactiveVar([]);
   });
@@ -39,7 +39,6 @@ Template.Sort.events({
       const sortTypes = target.sortTypes;
       const array = arrayGenerator(arrSize, condition);
 
-      const executionTime = {};
       const logs = [];
       const sortPromises = [];
 
@@ -62,21 +61,12 @@ Template.Sort.events({
 
       instance.sorting.set(true);
       serial(sortPromises).then((res)=> {
-
+        instance.executionTime.set(res);
         instance.sorting.set(false);
 
-        dialog('dialog', '.close').showModal();
+        dialog({ dialogSelector: 'dialog', closeSelector: '.close' }).showModal();
 
       });
-
-      /*
-    Promise.all(sortPromises).then(times => {
-        console.log(times);
-        instance.executionTime.set(times);
-        instance.sorting.set(false);
-
-      });
-    */
 
     },
   });
