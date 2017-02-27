@@ -1,6 +1,5 @@
-export {sort};
-function sort(array, sortType, condition, logs, instance) {
-  return () =>
+export const sortPromise = (array, sortType, condition, logs, instance) =>
+   () =>
      new Promise((resolve, reject) => {
 
         logs.push('Starts ' + sortType + ' for ' + condition + ' array');
@@ -22,4 +21,3 @@ function sort(array, sortType, condition, logs, instance) {
       }).catch((err) => {
         console.log(err);
       });
-}

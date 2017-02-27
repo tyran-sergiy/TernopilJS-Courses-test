@@ -2,7 +2,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './Sort.html';
 import { arrayGenerator } from '/imports/modules/array_generators/ArrayGenerator.js';
-import { sort } from '/imports/modules/sort/sort.js';
+import { sortPromise } from '/imports/modules/sort/SortPromiseGen.js';
 import { dialog } from '/imports/modules/ModalDialog.js';
 
 Template.Sort.onCreated(function sortOnCreated() {
@@ -37,6 +37,7 @@ Template.Sort.events({
       const condition = target.condition.value;
 
       const sortTypes = target.sortTypes;
+
       const array = arrayGenerator(arrSize, condition);
 
       const logs = [];
@@ -49,7 +50,7 @@ Template.Sort.events({
 
             let sortType = sortTypes[key].value;
 
-            sortPromises.push(sort(array, sortType, condition, logs, instance));
+            sortPromises.push(sortPromise(array, sortType, condition, logs, instance));
           }
 
         }
