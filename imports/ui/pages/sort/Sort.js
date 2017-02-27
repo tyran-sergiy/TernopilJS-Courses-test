@@ -3,12 +3,14 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './Sort.html';
 import { arrayGenerator } from '/imports/modules/array_generators/ArrayGenerator.js';
 import { sortPromise } from '/imports/modules/sort/SortPromiseGen.js';
+import { validateSortForm } from '/imports/modules/sort/SortFormValidator.js';
 import { dialog } from '/imports/modules/ModalDialog.js';
 
 Template.Sort.onCreated(function sortOnCreated() {
     this.executionTime = new ReactiveVar([]);
     this.sorting = new ReactiveVar(false);
     this.logs = new ReactiveVar([]);
+    this.errors = new ReactiveVar([]);
   });
 
 Template.Sort.helpers({
@@ -23,6 +25,10 @@ Template.Sort.helpers({
   logs() {
     return Template.instance().logs.get();
   },
+
+  errors() {
+    return Template.instance().errors.get();
+  },
 });
 
 Template.Sort.events({
@@ -34,14 +40,20 @@ Template.Sort.events({
       const target = event.target;
 
       const arrSize = target.size.value;
-      const condition = target.condition.value;
+      const arrCondition = target.condition.value;
 
       const sortTypes = target.sortTypes;
 
-      const array = arrayGenerator(arrSize, condition);
-
       const logs = [];
       const sortPromises = [];
+
+      const errors = validateSortForm(arrSize, sortTypes, arrCondition);
+      if (errors != []) {
+        instance.errors.set(errors);
+        return false;
+      }
+
+      const array = arrayGenerator(arrSize, arrCondition);
 
       Object.keys(sortTypes).map(
         (key) => {
@@ -50,7 +62,7 @@ Template.Sort.events({
 
             let sortType = sortTypes[key].value;
 
-            sortPromises.push(sortPromise(array, sortType, condition, logs, instance));
+            sortPromises.push(sortPromise(array, sortType, arrCondition, logs, instance));
           }
 
         }
