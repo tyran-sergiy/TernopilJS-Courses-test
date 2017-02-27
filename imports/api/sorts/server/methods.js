@@ -20,6 +20,23 @@ Meteor.methods({
     return time;
   },
 
-  
+  'sort.shellSort'(array) {
+
+    for (var gap = array.length - 1; gap > 0; gap = parseInt(gap / 2)) {
+      for (let i = gap; i < array.length; i++) {
+        const tmp = array[i];
+        let last = i;
+        for (let j = i; j >= gap && tmp < array[j - gap]; j -= gap) {
+          array[j] = array[j - gap];
+          last -= gap;
+        }
+
+        array[last] = tmp;
+      }
+    }
+
+    return array;
+
+  },
 
 });
