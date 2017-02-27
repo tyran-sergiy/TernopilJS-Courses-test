@@ -1,11 +1,13 @@
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './Sort.html';
-import { arrayGenerator } from '../../../modules/array_generators/ArrayGenerator.js';
+import { arrayGenerator } from '/imports/modules/array_generators/ArrayGenerator.js';
+import { sort } from '/imports/modules/sort/sort.js';
 
 Template.Sort.onCreated(function sortOnCreated() {
     this.executionTime = new ReactiveVar({});
     this.sorting = new ReactiveVar(false);
+    this.logs = new ReactiveVar([]);
   });
 
 Template.Sort.helpers({
@@ -16,15 +18,16 @@ Template.Sort.helpers({
   executionTime() {
     return Template.instance().executionTime.get();
   },
+
+  logs() {
+    return Template.instance().logs.get();
+  },
 });
 
 Template.Sort.events({
 
     'submit .sort'(event, instance) {
 
-            instance.sorting.set(true);
-
-      console.log(instance.sorting.get());
       event.preventDefault();
 
       const target = event.target;
@@ -32,35 +35,43 @@ Template.Sort.events({
       const arrSize = target.size.value;
       const condition = target.condition.value;
 
-      const bubbleType = target.bubbleSort.checked;
-      const shellType = target.shellSort.checked;
+      const sortTypes = target.sortTypes;
       const array = arrayGenerator(arrSize, condition);
 
       const executionTime = {};
+      const logs = [];
+      const sortPromises = [];
 
-      console.log(instance.sorting.get());
+      Object.keys(sortTypes).map(
+        (key) => {
 
-      if (bubbleType) {
+          if (sortTypes[key].checked) {
 
-        let start = new Date().getTime();
-        Meteor.call('sort.bubbleSort', array,
-          (err, res) => {
-            console.log(res);
-            instance.sorting.set(false);
+            let sortType = sortTypes[key].value;
+
+            sortPromises.push(sort(array, sortType, condition, logs, instance));
           }
+
+        }
       );
-        let end = new Date().getTime();
-        let time = end - start;
+      const serial = funcs =>
+      funcs.reduce((promise, func) =>
+      promise.then(result => func().then(Array.prototype.concat.bind(result))), Promise.resolve([]));
 
-        executionTime.bubbleSort = time;
-      };
+      instance.sorting.set(true);
+      serial(sortPromises).then((res)=> {
+        instance.sorting.set(false);
+        console.log(res);
+      });
 
+      /*
+    Promise.all(sortPromises).then(times => {
+        console.log(times);
+        instance.executionTime.set(times);
+        instance.sorting.set(false);
 
-      console.log(instance.sorting.get());
-
-      instance.executionTime.set(executionTime);
-
-      //  alert('Execution time: ' + time);
+      });
+    */
 
     },
   });
