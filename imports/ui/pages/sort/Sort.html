@@ -15,9 +15,11 @@
     <div class="mdl-cell mdl-cell--7-col ">
 
         <div class="mdl-card mdl-shadow--4dp card">
+          <div class="errors mdl-typography--text-center">
   {{#each error in errors}}
-  - {{error}}
+  <p>- {{error}}</p>
   {{/each}}
+  </div>
 {{#if sorting}}
 
 <div class="card-text mdl-typography--text-center spinner">

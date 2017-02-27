@@ -48,8 +48,8 @@ Template.Sort.events({
       const sortPromises = [];
 
       const errors = validateSortForm(arrSize, sortTypes, arrCondition);
-      if (errors != []) {
-        instance.errors.set(errors);
+      instance.errors.set(errors);
+      if (errors.length) {
         return false;
       }
 

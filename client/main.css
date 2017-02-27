@@ -77,7 +77,10 @@ padding: 60px;
 
 }
 
-
+.errors{
+margin-top: 20px;
+color: #d00000;
+}
 .box header {
   flex: 0 1 auto;
 }
