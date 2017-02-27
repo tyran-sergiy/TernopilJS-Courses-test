@@ -3,6 +3,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './Sort.html';
 import { arrayGenerator } from '/imports/modules/array_generators/ArrayGenerator.js';
 import { sort } from '/imports/modules/sort/sort.js';
+import { dialog } from '/imports/modules/ModalDialog.js';
 
 Template.Sort.onCreated(function sortOnCreated() {
     this.executionTime = new ReactiveVar({});
@@ -54,14 +55,18 @@ Template.Sort.events({
 
         }
       );
+
       const serial = funcs =>
       funcs.reduce((promise, func) =>
       promise.then(result => func().then(Array.prototype.concat.bind(result))), Promise.resolve([]));
 
       instance.sorting.set(true);
       serial(sortPromises).then((res)=> {
+
         instance.sorting.set(false);
-        console.log(res);
+
+        dialog('dialog', '.close').showModal();
+
       });
 
       /*

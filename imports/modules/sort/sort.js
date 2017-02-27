@@ -6,7 +6,7 @@ function sort(array, sortType, condition, logs, instance) {
         logs.push('Starts ' + sortType + ' for ' + condition + ' array');
         instance.logs.set(logs);
 
-        Meteor.call('sort.shellSort', array,
+        Meteor.call('sort.' + sortType, array,
           (err, res) => {
             if (err) {
               console.log(err);

@@ -22,6 +22,8 @@ Meteor.methods({
 
   'sort.shellSort'(array) {
 
+    let start = new Date().getTime();
+
     for (var gap = array.length - 1; gap > 0; gap = parseInt(gap / 2)) {
       for (let i = gap; i < array.length; i++) {
         const tmp = array[i];
@@ -35,8 +37,10 @@ Meteor.methods({
       }
     }
 
-    return array;
+    let end = new Date().getTime();
+    let time = end - start;
 
+    return time;
   },
 
 });
