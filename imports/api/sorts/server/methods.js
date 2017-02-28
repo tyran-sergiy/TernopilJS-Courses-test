@@ -43,4 +43,25 @@ Meteor.methods({
     return time;
   },
 
+  'sort.insertionSort'(array) {
+
+    let start = new Date().getTime();
+
+    for (let i = 0; i < array.length; i++) {
+      let tmp = array[i];
+      let j = i - 1;
+      while (j >= 0 && array[j] > tmp) {
+        array[j + 1] = array[j];
+        j--;
+      }
+
+      array[j + 1] = tmp;
+    }
+
+    let end = new Date().getTime();
+    let time = end - start;
+
+    return time;
+  },
+
 });

@@ -9,7 +9,7 @@ export const validateSortForm = (arrSize, sortTypes, arrCondition) => {
   Object.keys(sortTypes).forEach(
     (key) => {
 
-      if (!sortTypes[key].value.match(/^(bubbleSort)|(shellSort)|(quickSort)$/)) {
+      if (!sortTypes[key].value.match(/^(bubbleSort)|(shellSort)|(insertionSort)$/)) {
         errors.push('Did You change html? Problems with checkboxes, can`t sort now. Please, report about this problem');
       }
 
