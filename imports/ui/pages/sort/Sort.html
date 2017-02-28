@@ -54,24 +54,9 @@
                   </div>
 
 
-              {{>ArrayCondition}}
+              {{> ArrayCondition}}
 
-            <div class="sort-type ">
-              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"  for="shellSort-check">
-                <input type="checkbox" id="shellSort-check" class="mdl-checkbox__input" name="sortTypes" value="shellSort">
-                <span class="mdl-checkbox__label">Shell Sort</span>
-              </label>
-
-              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="bubbleSort-check">
-                <input type="checkbox" id="bubbleSort-check" class="mdl-checkbox__input" name="sortTypes" value="bubbleSort" >
-                <span class="mdl-checkbox__label">Bubble Sort</span>
-              </label>
-
-              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"  for="insertionSort-check">
-                <input type="checkbox" id="insertionSort-check" class="mdl-checkbox__input" name="sortTypes" value="insertionSort">
-                <span class="mdl-checkbox__label">Insertion Sort</span>
-              </label>
-          </div>
+              {{> SortTypes}}
 
                     <div class="mdl-card__actions mdl-card--border sort-btn ">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">

@@ -1,6 +1,8 @@
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './Instruction.html';
+import './ArrayCondition.html';
+import './SortTypes.html';
 import './Sort.html';
 import { arrayGenerator } from '/imports/modules/array_generators/ArrayGenerator.js';
 import { sortPromise } from '/imports/modules/sort/SortPromiseGen.js';
