@@ -6,14 +6,15 @@ export const validateSortForm = (arrSize, sortTypes, arrCondition) => {
   }
 
   let checked = 0;  //checked checkboxes count
-  Object.keys(sortTypes).every(
+  Object.keys(sortTypes).forEach(
     (key) => {
-      if (!sortTypes[key].value.match(/^(bubbleSort)|(shellSort)|(quikSort)$/)) {
+
+      if (!sortTypes[key].value.match(/^(bubbleSort)|(shellSort)|(quickSort)$/)) {
         errors.push('Did You change html? Problems with checkboxes, can`t sort now. Please, report about this problem');
-        return false;
       }
 
       if (sortTypes[key].checked) {
+
         checked++;
       }
 

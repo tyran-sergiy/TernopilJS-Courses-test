@@ -43,24 +43,4 @@ Meteor.methods({
     return time;
   },
 
-  'sort.quickSort'(array) {
-    if (array.length < 2) {
-      return array;
-    }
-
-    const base = array[0];
-    const lesser = [];
-    const greater = [];
-
-    for (let i = 1; i < array.length; i++) {
-      if (array[i] < base) {
-        lesser.push(array[i]);
-      } else {
-        greater.push(array[i]);
-      }
-    }
-
-    return Meteor.call('sort.quickSort', lesser)
-    .concat(base, Meteor.call('sort.quickSort', greater));
-  },
 });
