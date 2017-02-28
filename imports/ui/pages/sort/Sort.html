@@ -23,8 +23,10 @@
         {{/if}}
       </button>
    </div>
-
+         {{#if toggleInstruction}}
         {{>Instruction}}
+         {{else}}
+
         <div class="mdl-card mdl-shadow--4dp card">
           <div class="errors mdl-typography--text-center">
   {{#each error in errors}}
@@ -60,8 +62,8 @@
 
                     <div class="mdl-card__actions mdl-card--border sort-btn ">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
-  Sort
-</button>
+                          Sort
+                        </button>
                     </div>
                 </form>
 
@@ -71,7 +73,7 @@
             {{/if}}
 
         </div>
-
+      {{/if}}
     </div>
     <div class="mdl-layout-spacer"></div>
 </div>

@@ -1,5 +1,6 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
+import { ActiveRoute } from 'meteor/zimme:active-route';
 
 import '../../ui/partials/sideNav.html';
 import '../../ui/partials/Nav.html';
