@@ -12,9 +12,10 @@ export const sortPromise = (array, sortType, arrCondition, logs, instance) =>  /
             }else {
               logs.push('Finish ' + sortType + ' for ' + arrCondition + ' array');
               instance.logs.set(logs);
+              console.log(sortType, res.array);
               resolve({
                 sortType: sortType,
-                time: res,
+                time: res.time,
               });
             }
           });

@@ -2,7 +2,11 @@ export const validateSortForm = (arrSize, sortTypes, arrCondition) => {
   const errors = [];
 
   if (arrSize == '') {
-    errors.push('Empty Array size field');
+    errors.push('Please, enter array size');
+  }
+
+  if (arrSize > 60000) {
+    errors.push('Array size limit is 60000');
   }
 
   let checked = 0;  //checked checkboxes count

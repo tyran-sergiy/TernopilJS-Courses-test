@@ -14,6 +14,17 @@
   <div class="mdl-layout-spacer"></div>
     <div class="mdl-cell mdl-cell--7-col ">
 
+    <div class="toggle-btn mdl-typography--text-center">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent ">
+        {{#if toggleInstruction}}
+        Have fun with sorting!
+        {{else}}
+        Read instruction
+        {{/if}}
+      </button>
+   </div>
+
+        {{>Instruction}}
         <div class="mdl-card mdl-shadow--4dp card">
           <div class="errors mdl-typography--text-center">
   {{#each error in errors}}
@@ -26,7 +37,7 @@
   <h4>Sorting</h4>
   <div class="mdl-spinner mdl-js-spinner is-active"></div>
   {{#each log in logs}}
-  <p>=> Awesome sorting: {{log}}</p>
+  <p><b>=> Awesome sorting:</b> {{log}}</p>
   {{/each}}
 </div>
                 {{else}}
@@ -43,36 +54,24 @@
                   </div>
 
 
-                    <div class="initial-condition mdl-typography--text-center">
- <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-  <input type="radio" id="option-1" class="mdl-radio__button" name="condition" value="Random" checked>
-  <span class="mdl-radio__label">Random</span>
-</label>
-  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-  <input type="radio" id="option-2" class="mdl-radio__button" name="condition" value="Few Unique">
-  <span class="mdl-radio__label">Few Unique</span>
-</label>
+              {{>ArrayCondition}}
 
-                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-<input type="radio" id="option-3" class="mdl-radio__button" name="condition" value="Reversed">
-<span class="mdl-radio__label">Reversed</span>
-</label>
-                    </div>
+            <div class="sort-type ">
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"  for="shellSort-check">
+                <input type="checkbox" id="shellSort-check" class="mdl-checkbox__input" name="sortTypes" value="shellSort">
+                <span class="mdl-checkbox__label">Shell Sort</span>
+              </label>
 
-                    <div class="sort-type ">
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="bubbleSort-check">
-  <input type="checkbox" id="bubbleSort-check" class="mdl-checkbox__input" name="sortTypes" value="bubbleSort" checked>
-  <span class="mdl-checkbox__label">Bubble Sort</span>
-</label>
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"  for="shellSort-check">
-  <input type="checkbox" id="shellSort-check" class="mdl-checkbox__input" name="sortTypes" value="shellSort">
-  <span class="mdl-checkbox__label">Shell Sort</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"  for="insertionSort-check">
-<input type="checkbox" id="insertionSort-check" class="mdl-checkbox__input" name="sortTypes" value="insertionSort">
-<span class="mdl-checkbox__label">Insertion Sort</span>
-</label>
-</div>
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="bubbleSort-check">
+                <input type="checkbox" id="bubbleSort-check" class="mdl-checkbox__input" name="sortTypes" value="bubbleSort" >
+                <span class="mdl-checkbox__label">Bubble Sort</span>
+              </label>
+
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"  for="insertionSort-check">
+                <input type="checkbox" id="insertionSort-check" class="mdl-checkbox__input" name="sortTypes" value="insertionSort">
+                <span class="mdl-checkbox__label">Insertion Sort</span>
+              </label>
+          </div>
 
                     <div class="mdl-card__actions mdl-card--border sort-btn ">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">

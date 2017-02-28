@@ -17,7 +17,10 @@ Meteor.methods({
     let end = new Date().getTime();
     let time = end - start;
 
-    return time;
+    return {
+      time: time,
+      array: array,
+    };
   },
 
   'sort.shellSort'(array) {
@@ -40,7 +43,10 @@ Meteor.methods({
     let end = new Date().getTime();
     let time = end - start;
 
-    return time;
+    return {
+      time: time,
+      array: array,
+    };
   },
 
   'sort.insertionSort'(array) {
@@ -61,7 +67,10 @@ Meteor.methods({
     let end = new Date().getTime();
     let time = end - start;
 
-    return time;
+    return {
+      time: time,
+      array: array,
+    };
   },
 
 });

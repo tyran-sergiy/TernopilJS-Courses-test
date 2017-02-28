@@ -76,7 +76,9 @@ padding: 60px;
   background-image: url("background1.jpg");
 
 }
-
+.toggle-btn button{
+  margin-bottom: 20px;
+}
 .errors{
 margin-top: 20px;
 color: #d00000;

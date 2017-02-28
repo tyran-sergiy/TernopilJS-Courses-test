@@ -1,5 +1,6 @@
 import { ReactiveVar } from 'meteor/reactive-var';
 
+import './Instruction.html';
 import './Sort.html';
 import { arrayGenerator } from '/imports/modules/array_generators/ArrayGenerator.js';
 import { sortPromise } from '/imports/modules/sort/SortPromiseGen.js';
@@ -11,6 +12,7 @@ Template.Sort.onCreated(function sortOnCreated() {
     this.sorting = new ReactiveVar(false);
     this.logs = new ReactiveVar([]);
     this.errors = new ReactiveVar([]);
+    this.toggleInstruction = new ReactiveVar(true);
   });
 
 Template.Sort.helpers({
@@ -29,9 +31,18 @@ Template.Sort.helpers({
   errors() {
     return Template.instance().errors.get();
   },
+
+  toggleInstruction() {
+    return Template.instance().toggleInstruction.get();
+  },
+
 });
 
 Template.Sort.events({
+
+    'click .toggle-btn button'(event, instance) {
+      instance.toggleInstruction.set(!instance.toggleInstruction.get());
+    },
 
     'submit .sort'(event, instance) {
 
@@ -54,6 +65,7 @@ Template.Sort.events({
       }
 
       const array = arrayGenerator(arrSize, arrCondition);
+      console.log('Start Array', array);
 
       Object.keys(sortTypes).map(
         (key) => {
