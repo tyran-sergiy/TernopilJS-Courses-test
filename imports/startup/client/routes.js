@@ -13,6 +13,11 @@ import '../../ui/pages/about_me/AboutMe.js';
 import '../../ui/pages/sort/Sort.js';
 import '../../ui/pages/home/Billboard.js';
 
+FlowRouter.triggers.enter([function () {
+  document.title = FlowRouter.current().route.name;
+},
+]);
+
 FlowRouter.route('/', {
   name: 'Home',
   action() {
@@ -39,7 +44,7 @@ FlowRouter.route('/about', {
 });
 
 FlowRouter.route('/sort', {
-  name: 'Sorting page',
+  name: 'Awesome sorting',
   action() {
     BlazeLayout.render('MainLayout', {
       main: 'Sort',
