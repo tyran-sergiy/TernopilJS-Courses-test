@@ -31,6 +31,19 @@ html {
 .contacts {
     width: 350px;
 }
+.contacts ul{
+
+      list-style-type:none;
+      padding: 0 20px 0 20px;
+}
+.contacts ul>li{
+
+  color:black;
+  padding: 5px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #EEEEEE;
+
+}
 
 ::-webkit-scrollbar {
     width: 8px;
