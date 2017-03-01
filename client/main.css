@@ -24,6 +24,11 @@ a{
 html{
      overflow-y: scroll;
 }
+
+.contacts {
+
+  width: 350px;
+}
 ::-webkit-scrollbar {
     width: 8px;
 }
