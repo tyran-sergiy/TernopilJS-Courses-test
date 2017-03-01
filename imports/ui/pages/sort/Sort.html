@@ -29,19 +29,19 @@
 
         <div class="mdl-card mdl-shadow--4dp card">
           <div class="errors mdl-typography--text-center">
-  {{#each error in errors}}
-  <p>- {{error}}</p>
-  {{/each}}
-  </div>
-{{#if sorting}}
+            {{#each error in errors}}
+            <p>- {{error}}</p>
+            {{/each}}
+            </div>
+          {{#if sorting}}
 
 <div class="card-text mdl-typography--text-center spinner">
   <h4>Sorting</h4>
   <div class="mdl-spinner mdl-js-spinner is-active"></div>
-  {{#each log in logs}}
-  <p><b>=> Awesome sorting:</b> {{log}}</p>
-  {{/each}}
-</div>
+        {{#each log in logs}}
+        <p><b>=> Awesome sorting:</b> {{log}}</p>
+        {{/each}}
+  </div>
                 {{else}}
                 <div class="card-text ">
 
@@ -66,12 +66,8 @@
                         </button>
                     </div>
                 </form>
-
-
             </div>
-
             {{/if}}
-
         </div>
       {{/if}}
     </div>

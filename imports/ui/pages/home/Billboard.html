@@ -1,10 +1,10 @@
 <template name="Billboard">
   <div class="billboard">
     {{#if Template.subscriptionsReady}}
-{{#let quote = randQuote}}
-    <h3>“{{quote.text}}”</h3>
-    <h5>- {{quote.author}}</h5>
-{{/let}}
+      {{#let quote = randQuote}}
+          <h3>“{{quote.text}}”</h3>
+          <h5>- {{quote.author}}</h5>
+      {{/let}}
     {{/if}}
   </div>
 </template>
